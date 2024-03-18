@@ -1,18 +1,19 @@
+const slideInLeft = window.innerWidth <= 824 ? '100%' : '50%';
+
 $(function() {
     var inWrap = $('.slider-inner');
 
     $('.prev').on('click', function() {
-        inWrap.animate({left: '100%'}, 300, function() {
+        inWrap.animate({left: slideInLeft}, 300, function() {
+            $('.slide').first().before($('.slide').last())
 
             inWrap.css('left', '0%');
 
-            $('.slide').first().before($('.slide').last())
         }) 
     })
 
     $('.next').on('click', function() {
-        inWrap.animate({left: '-100%'}, 300, function() {
-            
+        inWrap.animate({left: `-${slideInLeft}`}, 300, function() {
             inWrap.css('left', '0%');
 
             $('.slide').last().after($('.slide').first())

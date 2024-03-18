@@ -108,10 +108,10 @@ let dictLang = {
         'est': "Tenerife on paradiis loodushuvilistele. Vulkaanid, rannad, matkamine... Iga päev oli täis tegevusi!"
     },
     'slide-title3': {
-        "ua": "Савчак Софія",
-        "ru": "Савчак София",
-        'en': "Savchak Sofia",
-        'est': "Savchak Sofia"
+        "ua": "Андрій Шевченко ",
+        "ru": "Андрей Шевченко",
+        'en': "Andriy Shevchenko",
+        'est': "Andriy Shevchenko"
     },
     'slide-text3': {
         "ua": "Відпустка мрії! Готелі, обслуговування та екскурсії на вищому рівні. Тенеріфе не розчарувало!",

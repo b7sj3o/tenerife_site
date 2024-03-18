@@ -1,9 +1,9 @@
+const form = document.getElementById('contacts_form')
 const formBtn = document.getElementById('submit_form');
-
-formBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    const token ='6822471357:AAHneYj_Z1Ff4KQgXZtuhvUlCdmCcimfCew';
-    const chatID = '928132950';
+const token ='6822471357:AAHneYj_Z1Ff4KQgXZtuhvUlCdmCcimfCew';
+const chatID = '928132950';
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
     const name = document.getElementById('submit-name').value;    
     const phoneNumber = document.getElementById('submit-phone-number').value;
@@ -12,16 +12,18 @@ formBtn.addEventListener('click', function(event) {
 
     const message = `Ім'я: ${name}%0AE-mail: ${email}%0AНомер телефону: ${phoneNumber}`;
 
-    const bot = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${message}`
-
-    const api = new XMLHttpRequest();
-
-    api.open('GET', bot, true);
-    api.send();
-
-    setTimeout(function() {
-        location.reload();
-    }, 1000);
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${message}`
+    fetch(url, {
+        method: 'POST',
+    }).then((response) => {
+        if (response.status == 404) {
+            formBtn.textContent = 'Трапилася помилка!'
+        } else if (response.status == 200) {
+            formBtn.textContent = 'Дані надіслано успішно!'
+        }
+    }).catch((error) => {
+        formBtn.textContent = 'Трапилася помилка!'
+    });
 })
     
 
